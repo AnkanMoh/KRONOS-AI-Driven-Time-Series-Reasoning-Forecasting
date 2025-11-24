@@ -1,0 +1,75 @@
+train_start_date: "2018-01-01"
+train_end_date:   "2025-05-30"
+valid_start_date: "2025-06-01"
+valid_end_date:   "2025-08-22"
+
+ticker_list:
+  - NVDA
+  - AMD
+  - INTC
+  - TXN
+  - MCHP
+  - QCOM
+  - MSFT
+  - ORCL
+  - NOW
+  - CSCO
+  - IBM
+  - INTU
+  - SMCI
+  - AAPL
+  - AMZN
+  - TSLA
+  - GOOGL
+  - META
+  - PYPL
+  - GPN
+  - CWEN
+  - FSLR
+  - SEDG
+  - BE
+  - MNTK
+  - AMTX
+  - CLNE
+  - CEG
+  - BN
+  - NEE
+  - COP
+  - DVN
+  - ENB
+  - XOM
+  - PSX
+  - SHEL
+  - MPC
+  - ED
+  - PPL
+  - SO
+
+context_length: 160
+batch_size: 128
+grad_accum_steps: 2        
+learning_rate: 0.0003
+weight_decay: 0.0001
+epochs: 18
+d_model: 160
+n_heads: 5
+n_layers: 3
+dropout: 0.15
+random_seed: 123
+device: "auto"
+
+lambda_dir: 0.25
+use_indicators: true
+per_ticker_scaler: true
+targets: ["Open","Close","Low","High","Volume"]
+
+artifacts_dir: "artifacts"
+cache_dir: "artifacts/cache"
+model_path: "artifacts/kronos_p100.pth"
+scaler_path: "artifacts/scalers.pkl"
+predictions_path: "artifacts/predictions.json"
+evaluation_csv: "artifacts/evaluation.csv"
+
+use_kronos_base: false
+kronos_repo: "NeoQuasar/Kronos-base"
+kronos_tokenizer_repo: "NeoQuasar/Kronos-Tokenizer-base"
